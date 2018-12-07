@@ -19,7 +19,7 @@ RUN apt-get update && \
 RUN curl --create-dirs -L -o /usr/local/bin/repo -O -L https://github.com/akhilnarang/repo/raw/master/repo && \
     chmod a+x /usr/local/bin/repo
 
-# Create user for builds
+# Create seperate user for building
 RUN groupadd -g 1000 -r ${USER} && \
     useradd -u 1000 --create-home -r -g ${USER} ${USER} && \
     mkdir -p /tmp/ccache /repo && \
@@ -31,3 +31,7 @@ VOLUME ["/tmp/ccache", "/repo"]
 
 # Work in the build directory, repo is expected to be init'd here
 WORKDIR /repo
+
+# This is where the magic happens~
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
