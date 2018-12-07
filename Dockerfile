@@ -23,7 +23,8 @@ RUN curl --create-dirs -L -o /usr/local/bin/repo -O -L https://github.com/akhiln
 RUN groupadd -g 1000 -r ${USER} && \
     useradd -u 1000 --create-home -r -g ${USER} ${USER} && \
     mkdir -p /tmp/ccache /repo && \
-    chown -R ${USER}: /tmp/ccache /repo
+    chown -R ${USER}: /tmp/ccache /repo && \
+    usermod -aG sudo ${USER}
 
 # Setup volumes for persistent data
 USER ${USER}
