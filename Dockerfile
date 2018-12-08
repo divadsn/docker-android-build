@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER David Sn <divad.nnamtdeis@gmail.com>
+LABEL maintainer="David Sn <divad.nnamtdeis@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV USER jenkins
