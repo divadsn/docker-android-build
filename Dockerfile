@@ -30,6 +30,10 @@ RUN groupadd -g 1000 -r ${USER} && \
 USER ${USER}
 VOLUME ["/tmp/ccache", "/repo"]
 
+# Create gitconfig for build user
+RUN git config --global user.name ${USER} && git config --global user.email ${USER}@${HOSTNAME}.local && \
+    git config --global ui.color auto
+
 # Work in the build directory, repo is expected to be init'd here
 WORKDIR /repo
 
