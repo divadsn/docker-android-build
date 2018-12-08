@@ -34,5 +34,4 @@ VOLUME ["/tmp/ccache", "/repo"]
 WORKDIR /repo
 
 # This is where the magic happens~
-COPY entrypoint.sh /
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash"]
