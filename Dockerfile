@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 MAINTAINER David Sn <divad.nnamtdeis@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -9,10 +9,10 @@ ENV CCACHE_DIR /tmp/ccache
 
 # Install required dependencies 
 RUN apt-get update && \
-    apt-get install -y \
-        bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-core gnupg gperf imagemagick openjdk-8-jre openjdk-8-jdk \
-        lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libc6-dev libc6-dev-i386 libgl1-mesa-dev \
-        libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip unzip zlib1g-dev libx11-dev x11proto-core-dev && \
+    apt-get install --no-install-recommends -y \
+        bc bison build-essential ccache curl flex g++-multilib gcc-multilib git-core python gnupg gperf imagemagick openjdk-8-jre openjdk-8-jdk \
+        lib32ncurses5-dev lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libc6-dev libc6-dev-i386 libgl1-mesa-dev \
+        libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip unzip zlib1g-dev libx11-dev x11proto-core-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install repo binary (thanks akheel)
