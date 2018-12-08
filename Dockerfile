@@ -19,11 +19,14 @@ RUN apt-get update && \
 RUN curl --create-dirs -L -o /usr/local/bin/repo -O -L https://github.com/akhilnarang/repo/raw/master/repo && \
     chmod a+x /usr/local/bin/repo
 
-# Create seperate user for building
+# Create seperate build user
 RUN groupadd -g 1000 -r ${USER} && \
     useradd -u 1000 --create-home -r -g ${USER} ${USER} && \
     mkdir -p /tmp/ccache /repo && \
-    chown -R ${USER}: /tmp/ccache /repo && \
+    chown -R ${USER}: /tmp/ccache /repo
+    
+# Allow sudo without password for build user
+RUN echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-docker-build && \
     usermod -aG sudo ${USER}
 
 # Setup volumes for persistent data
