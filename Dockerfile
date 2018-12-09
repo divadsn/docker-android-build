@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 LABEL maintainer="David Sn <divad.nnamtdeis@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV USER jenkins
+ENV USER docker
 ENV HOSTNAME buildbot
 ENV USE_CCACHE 1
 ENV CCACHE_DIR /tmp/ccache
