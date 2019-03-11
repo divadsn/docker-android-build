@@ -35,7 +35,7 @@ VOLUME ["/tmp/ccache", "/repo"]
 
 # Create gitconfig for build user
 RUN git config --global user.name ${USER} && git config --global user.email ${USER}@${HOSTNAME}.local && \
-    git config --global ui.color auto
+    git config --global color.ui auto
 
 # Work in the build directory, repo is expected to be init'd here
 WORKDIR /repo
