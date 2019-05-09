@@ -1,11 +1,11 @@
 FROM ubuntu:18.04
 LABEL maintainer="David Sn <divad.nnamtdeis@gmail.com>"
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV USER docker
-ENV HOSTNAME buildbot
-ENV USE_CCACHE 1
-ENV CCACHE_DIR /tmp/ccache
+ENV DEBIAN_FRONTEND=noninteractive \
+    USER=docker \
+    HOSTNAME=buildbot \
+    USE_CCACHE=1 \
+    CCACHE_DIR=/tmp/ccache
 
 # Install required dependencies 
 RUN apt-get update && \
