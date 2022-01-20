@@ -20,7 +20,7 @@ RUN apt-get update && \
         pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
         texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
         libxml-simple-perl apt-utils \
-        libncurses5 curl python-is-python3 sudo rsync && \
+        libncurses5 curl python-is-python3 sudo ssh rsync && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install repo binary (thanks akheel)
