@@ -3,9 +3,9 @@ LABEL maintainer="David Sn <divad.nnamtdeis@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     USER=docker \
-    HOSTNAME=buildbot \
     USE_CCACHE=1 \
-    CCACHE_DIR=/tmp/ccache
+    CCACHE_DIR=/tmp/ccache \
+    CCACHE_EXEC=/usr/bin/ccache
 
 # Install required dependencies 
 RUN apt-get update && \
